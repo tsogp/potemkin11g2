@@ -1,1 +1,1 @@
-[demo](https://tsogp.github.io/shoppingparadise)
+[Демо на Github Pages](https://tsogp.github.io/shoppingparadise)
