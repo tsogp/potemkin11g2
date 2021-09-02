@@ -1,1 +1,1 @@
-# shoppingparadise
+tsogp.github.io/shoppingparadise
