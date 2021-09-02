@@ -1,12 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <title>Document</title>
 </head>
+
+<style>
+    .main {
+        min-height: 60vh;
+        height: 100%
+    }
+</style>
+
 <body>
-    
+    <div class="header">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a href="index.html" class="navbar-brand">О нас</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="catalogue.html" class="nav-item nav-link">Товары</a>
+                    <a href="coffee.html" class="nav-item nav-link">Топ продаж</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="jumbotron text-center">
+        <h1>Коста-рика. Да, оно так и называется.</h1>
+        <h6>И это лучшее, что мы когда-либо пробовали.</h6>
+    </div>
+
+    <div class="container bg-light text-dark my-3 py-5 main">
+        <div class="row">
+            <div class="col-md">
+                <img width="90%" alt="Коста Рика" src="costa-rica.jpg" title="Коста Рика">
+            </div>
+            <div class="col-md">
+                <h3>Коста-рика</h3>
+                <ul class="pt-3">
+                    <li>
+                        <h6 class="py-1">
+                            Насыщенный вкус — в нем проглядываются нотки шоколада и ягод.
+                        </h6>
+                    </li>
+                    <li>
+                        <h6 class="py-1">
+                            Ягодная кислинка.
+                        </h6>
+                    </li>
+                    <li>
+                        <h6 class="py-1">
+                            Легкая горечь в послевкусии.
+                        </h6>
+                    </li>
+                </ul>
+
+                <h5 class="pb-1">1кг - 4000 руб.</h5>
+                <a href="#" class="btn btn-outline-dark py-3">Купить!</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer font-small special-color-dark pt-2 bg-dark text-light">
+        <div class="footer-copyright text-center py-2">
+            <h3>Кофе!</h3>
+        </div>
+    </footer>
 </body>
+
 </html>

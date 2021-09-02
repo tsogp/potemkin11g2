@@ -1,12 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <title>Document</title>
 </head>
+
+<style>
+    .main {
+        min-height: 40vh;
+        height: 100%
+    }
+</style>
+
 <body>
-    
+    <div class="header">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a href="index.html" class="navbar-brand">О нас</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="catalogue.html" class="nav-item nav-link">Товары</a>
+                    <a href="coffee.html" class="nav-item nav-link">Топ продаж</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="jumbotron text-center">
+        <h1>Что мы можем предложить Вам?</h1>
+        <h6>Краткость - сестра таланта. Поэтому на выбор дается три сорта кофе.</h6>
+    </div>
+
+    <div class="container bg-light text-dark main">
+        <div class="row">
+            <div class="col-sm-4 text-left">
+                <h2>Арабика</h2>
+                <img src="coffee-beans.png" class="py-3">
+                <ul>
+                    <li>
+                        <h6 class="py-1">Меньше кофеина.</h6>
+                    </li>
+                    <li>
+                        <h6 class="py-1">Больше липидов и сахаров.</h6>
+                    </li>
+                    <li>
+                        <h6 class="py-1">Интенсивный и кислотый вкус.</h6>
+                    </li>
+                </ul>
+
+                <h5 class="py-1">1кг - 2000 руб.</h5>
+                <a href="#" class="btn btn-outline-dark py-3">Купить!</a>
+            </div>
+            <div class="col-sm-4 text-left">
+                <h2>Робуста</h2>
+                <img src="coffee-beans.png" class="py-3">
+                <ul>
+                    <li>
+                        <h6 class="py-1">Больше кофеина - хорошой энергетик.</h6>
+                    </li>
+                    <li>
+                        <h6 class="py-1">Интенсивный аромат.</h6>
+                    </li>
+                    <li>
+                        <h6 class="py-1">Терпкий вкус.</h6>
+                    </li>
+                </ul>
+                <h5 class="py-1">1кг - 2000 руб.</h5>
+                <a href="#" class="btn btn-outline-dark py-3">Купить!</a>
+            </div>
+            <div class="col-sm-4 text-left">
+                <h2>Либерика</h2>
+                <img src="coffee-beans.png" class="py-3">
+                <ul>
+                    <li>
+                        <h6 class="py-1">Большие зерна.</h6>
+                    </li>
+                    <li>
+                        <h6 class="py-1">Очень (!) сильный аромат.</h6>
+                    </li>
+                    <li>
+                        <h6 class="py-1">Очень (!) резкий вкус.</h6>
+                    </li>
+                </ul>
+                <h5 class="py-1">1кг - 2000 руб.</h5>
+                <a href="#" class="btn btn-outline-dark py-3">Купить!</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-light my-3 py-4 text-center">
+        <h1 class="py-3">А может посмотрите на наш лучший товар?</h1>
+        <img src="free-icon-coffee-cup-273048.png" class="mr-3">
+        <a href="coffee.html" class="btn btn-outline-dark py-3 ml-3">Что же там может быть?</a>
+    </div>
+
+    <footer class="page-footer font-small special-color-dark pt-2 bg-dark text-light">
+        <div class="footer-copyright text-center py-2">
+            <h3>Кофе!</h3>
+            <h6>Icon made by photo3idea-studio and Freepik from <a
+                    href="https://www.flaticon.com/ru/free-icon/coffee-cup_273048">www.flaticon.com</a>
+            </h6>
+        </div>
+    </footer>
 </body>
+
 </html>
