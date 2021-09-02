@@ -1,1 +1,1 @@
-tsogp.github.io/shoppingparadise
+[tsogp.github.io/shoppingparadise]
