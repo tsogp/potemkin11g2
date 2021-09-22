@@ -10,14 +10,15 @@
 </head>
 
 <style>
-    .main {
+    .main,
+    .review {
         min-height: 35vh;
         height: 100%
     }
 
     iframe {
         display: block;
-        border-style:none;
+        border-style: none;
     }
     
     ul {
@@ -88,8 +89,8 @@
         <a href="catalogue.html" class="btn btn-outline-dark py-3 ml-3">Посмотреть товары!</a>
     </div>
 
-    
-    <div class="container bg-light">
+
+    <div class="container bg-light review">
         <h1 class="pt-3 text-center">Обратная связь</h1>
         <h6 class="text-center">Оставьте, пожалуйста, отзыв</h6>
         <form>
@@ -112,11 +113,16 @@
                 </div>
             </div>
         </form>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118930.22500580846!2d-157.8691130446599!3d21.32801929624737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c00183b8cc3464d%3A0x4b28f55ff3a7976c!2z0JPQvtC90L7Qu9GD0LvRgywg0JPQsNCy0LDQudC4LCDQodCo0JA!5e0!3m2!1sru!2sru!4v1631186226138!5m2!1sru!2sru" 
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
+        <input type="submit" class="btn btn-outline-dark" value="Отправить">
+        <div style="text-align: center;" class="py-3">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118930.22500580846!2d-157.8691130446599!3d21.32801929624737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c00183b8cc3464d%3A0x4b28f55ff3a7976c!2z0JPQvtC90L7Qu9GD0LvRgywg0JPQsNCy0LDQudC4LCDQodCo0JA!5e0!3m2!1sru!2sru!4v1631186226138!5m2!1sru!2sru"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+
     </div>
-    
+
 
     <footer class="page-footer font-small special-color-dark pt-2 bg-dark text-light">
         <div class="footer-copyright text-center py-2">
