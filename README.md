@@ -1,1 +1,1 @@
-[Демо на Github Pages](https://tsogp.github.io/potemkin11g2)
+[Демо на Github Pages (beta)](https://tsogp.github.io/potemkin11g2)
