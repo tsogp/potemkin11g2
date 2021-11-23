@@ -1,0 +1,13 @@
+UPDATE user SET created_at = substr(created_at, 1, 4) || '-' || substr(created_at, 9, 2) || '-' || substr(created_at, 6, 2)
+
+SELECT username, MAX(created_at) AS 'last_register' FROM user
+
+SELECT id, username, substr(birth_date, 1, 4) as 'birth_year' FROM user GROUP BY id
+
+// не понял, что нужно вывести: общий остаток товаров или количество позиций, поэтому написал оба запроса
+SELECT SUM(amount) as 'total_items' FROM product
+SELECT COUNT(*) as 'total_items' FROM product 
+
+SELECT AVG(age) as 'average_age' FROM user 
+	WHERE created_at >= date('now', '-2 months')
+	
