@@ -2,13 +2,13 @@
 
 -- выгрузка личной информации в профиль
 SELECT
-	(SELECT email FROM user) AS email,
-	(SELECT username FROM user) AS username,
-	(SELECT password FROM user) AS password,
-	(SELECT phone_number FROM user) AS phone_number,
-	(SELECT address FROM user) AS address,
-	(SELECT birth_date FROM user) AS birth_date,
-	(SELECT created_at FROM user) AS created_at
+	email AS email,
+	username AS username,
+	password AS password,
+	phone_number AS phone_number,
+	address AS address,
+	birth_date AS birth_date,
+	created_at AS created_at
 FROM user
 WHERE user.id = 1;
 
