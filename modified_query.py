@@ -5,6 +5,14 @@ class DB():
         self.__session = sqlite3.connect(name)
         self.__cursor = self.__session.cursor()
     
+    @property
+    def getCursor(self):
+        return self.__cursor
+    
+    @property
+    def getSession(self):
+        return self.__session
+
     def getProfileInfo(self, user_id: int):
         request = "SELECT email, username, password, phone_number, address, birth_date, created_at FROM user WHERE user.id = :user_id;"
         return self.__cursor.execute(request, {'user_id': user_id}).fetchall()
@@ -22,8 +30,8 @@ class DB():
 
 db = DB('database.db')
 
-print(db.getProfileInfo(user_id=1))
-print(db.getCartInfo(user_id=1))
-print(db.getPurchasedOrders(user_id=1))
+print(db.getProfileInfo(user_id=2))
+print(db.getCartInfo(user_id=2))
+print(db.getPurchasedOrders(user_id=2))
 
 del db
