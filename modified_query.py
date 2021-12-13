@@ -82,7 +82,13 @@ class DB():
         request = "SELECT total_price, user_email, user_phone, user_note, address, created_at AS payment_received_at FROM purchased_order WHERE purchased_order.user_id = :user_id;"
         return self.__cursor.execute(request, {'user_id': user_id}).fetchall()
         
+    def __del__(self):
+        self.__session.close()
+
 db = DB()
+
 print(db.getProfileInfo(user_id=1))
 print(db.getCartInfo(user_id=1))
 print(db.getPurchasedOrders(user_id=1))
+
+del db
