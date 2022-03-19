@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+{% block style %}
+
+{% endblock %}
+
+<body>
+    <div class="header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark text-light">
+            <a href="index" class="navbar-brand"><img src="{{ url_for('static', filename='img/coffee1616.png') }}" class="img-responsive"></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse" style="justify-content: right;">
+                <div class="navbar-nav">
+                    <a href="catalogue" class="nav-item nav-link">Товары</a>
+                    <a href="coffee" class="nav-item nav-link">Топ продаж</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer class="page-footer font-small special-color-dark pt-2 text-light">
+        <div class="footer-copyright text-center py-2">
+            <h3>Кофе!</h3>
+            <h6>Icon made by Freepik from <a
+                href="https://www.flaticon.com/ru/free-icon/coffee-cup_273048">www.flaticon.com</a>
+            </h6>
+        </div>
+    </footer>
+</body>
