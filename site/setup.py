@@ -2,12 +2,15 @@ from flask import *
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 import os
+import sqlalchemy
+import hashlib
 
 NON_RESTART_FLAG = False
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///testdb.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = 'content'
 
 db = SQLAlchemy(app)
 
@@ -21,6 +24,12 @@ class User(db.Model):
 
     def __repr__(self):
         return f'{self.id} {self.username}'
+    
+    def validate(self, password):
+        return self.password == hashlib.md5(password.encode("utf8")).hexdigest()
+
+    def set_password(self, password):
+        self.password = hashlib.md5(password.encode('utf8')).hexdigest()
 
 
 class ProductCategory(db.Model):
@@ -129,15 +138,23 @@ def init():
     dummy = User(
         email='a@a.ru',
         username='admin',
-        password='bruh1234',
+        password='',
         age=19,
     )
+    dummy.set_password('bruh1234')
 
     db.session.add(dummy)
     db.session.commit()
 
+def create_db():
+    db.create_all()
+
+def get_product_by_url(name):
+    product = list(Product.query.filter(Product.url == name))
+    return product[0] if len(product) == 1 else None
+
 def db_status():
-    return os.path.isfile("site/testdb.db")
+    return os.path.isfile("testdb.db")
 
 def get_products():
     return Product.query.all()
@@ -152,6 +169,28 @@ def get_cart():
 def setup():
     return redirect('/index')
 
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        login = request.form.get("login")
+        password = request.form.get("password")
+        try:
+            if User.query.filter(User.username == login).one().validate(password):
+                session["login"] = login
+                flash(f"Добро пожаловать, {login}!", "success")
+                return redirect('/index', code=301)
+            flash("Неправильный пароль", "warning")
+        except sqlalchemy.exc.NoResultFound:
+            flash("Неправильный логин", "danger")
+    return render_template('login.html')
+
+
+@app.route("/logout")
+def logout():
+    if session.get("login"):
+        session.pop("login")
+    return redirect("/", code=302)
+
 @app.route('/index')
 def render_index():
     return render_template("index.html")
@@ -160,25 +199,13 @@ def render_index():
 def render_catalogue():
     return render_template("catalogue.html", products=get_products())
 
-@app.route('/coffee')
-def render_coffee():
-    return render_template("coffee.html")
+@app.route('/<coffee>')
+def render_coffee(coffee):
+    return render_template("coffee.html", coffee=get_product_by_url(coffee))
 
-@app.route('/arabica')
-def render_arabica():
-    return render_template("arabica.html")
-
-@app.route('/liberica')
-def render_liberica():
-    return render_template("liberica.html")
-
-@app.route('/robusta')
-def render_robusta():
-    return render_template("robusta.html")
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     if not db_status():
-        db.create_all()
+        create_db()
         init()
     
     app.run(debug=True)

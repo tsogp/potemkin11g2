@@ -23,8 +23,13 @@
 
             <div class="collapse navbar-collapse" id="navbarCollapse" style="justify-content: right;">
                 <div class="navbar-nav">
+                    {% if session.login %}
+                        <a href="catalogue" class="nav-item nav-link">{{ session.login }}</a>
+                        <a href="logout" class="nav-item nav-link">Выйти</a>
+                    {% else %}
+                        <a href="login" class="nav-item nav-link">Вoйти</a>
+                    {% endif %}
                     <a href="catalogue" class="nav-item nav-link">Товары</a>
-                    <a href="coffee" class="nav-item nav-link">Топ продаж</a>
                 </div>
             </div>
         </nav>

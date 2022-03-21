@@ -34,7 +34,7 @@
 {% block content %}
     <div class="main container" style="width: auto; display: block">
         <div class="jumbotron text-center">
-            <h1>Арабика.</h1>
+            <h1>{{ coffee.name }}</h1>
             <h6>И это лучшее, что мы когда-либо пробовали.</h6>
         </div>
 
@@ -44,19 +44,15 @@
                     <img width="90%" alt="Коста Рика" src="{{ url_for('static', filename='img/coffee.png') }}"  title="Коста Рика" style="outline: 1px solid #666;">
                 </div>
                 <div class="col-md">
-                    <h3>Арабика</h3>
+                    <h3>{{ coffee.name }}</h3>
                     <ul>
-                        <li>
-                            <h6 class="py-1">Меньше кофеина.</h6>
-                        </li>
-                        <li>
-                            <h6 class="py-1">Больше липидов и сахаров.</h6>
-                        </li>
-                        <li>
-                            <h6 class="py-1">Интенсивный и кислотый вкус.</h6>
-                        </li>
+                        {% for line in coffee.description.split('\n') %}
+                            <li>
+                                <h6 class="py-1">{{ line }}</h6>
+                            </li>
+                        {% endfor %}
                     </ul>
-                    <h5 class="pb-1">1кг - 2000 руб.</h5>
+                    <h5 class="pb-1">1кг - {{ coffee.price }} руб.</h5>
                     <a href="#" class="btn btn-outline-dark py-3">Купить!</a>
                 </div>
             </div>
