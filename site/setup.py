@@ -339,4 +339,4 @@ if __name__ == '__main__':
         create_db()
         init()
     
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
