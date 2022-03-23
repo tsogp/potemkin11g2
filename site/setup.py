@@ -148,14 +148,17 @@ def init():
     db.session.add(robusta)
     db.session.add(liberica)
 
-    dummy = User(
-        email='a@a.ru',
-        username='admin',
-        password='',
-        age=19,
-    )
-    dummy.set_password('bruh1234')
-
+    dummy = None
+    if len(list(User.query.all())) == 0:
+        dummy = User(
+                    email='a@a.ru',
+                    username='admin',
+                    password='',
+                    age=19,
+                )
+        dummy.set_password('bruh1234')
+        db.session.add(dummy)            
+    
     dummy_review = Reviews(
         name='Джаред',
         email='a@a.ru',
@@ -168,7 +171,7 @@ def init():
         text='Согласен с Джаредом! Отличный кофе. После него я тоже не спал несколько дней.'
     )
 
-    db.session.add(dummy)
+    
     db.session.add(dummy_review)
     db.session.add(dummy_review1)
     db.session.commit()
