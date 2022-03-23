@@ -50,9 +50,6 @@
     <div class="main">
         <div class="container bg-light text-dark my-3 py-5">
             <p>admin bruh1234</p>
-            {% for mesg in get_flashed_messages() %}
-                <h6 style="color: red;">{{ mesg }}</h1>
-            {% endfor %}
             <h3>Вход в аккаунт</h3>
             <form method="POST" class="auth login_form">
                 <input type="login" name="login" class="form-control" placeholder="Логин">

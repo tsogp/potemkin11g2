@@ -15,24 +15,44 @@
 
 <body>
     <div class="header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark text-light">
-            <a href="index" class="navbar-brand"><img src="{{ url_for('static', filename='img/coffee1616.png') }}" class="img-responsive"></a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
+            <a href="/index" class="navbar-brand"><img src="{{ url_for('static', filename='img/coffee1616.png') }}" class="img-responsive"></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarCollapse" style="justify-content: right;">
-                <div class="navbar-nav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
                     {% if session.login %}
-                        <a href="catalogue" class="nav-item nav-link">{{ session.login }}</a>
-                        <a href="logout" class="nav-item nav-link">Выйти</a>
+                        <li class="nav-item">
+                            <a href="/{{session.login}}" class="nav-item nav-link">{{ session.login }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/logout" class="nav-item nav-link">Выйти</a>
+                        </li>                        
                     {% else %}
-                        <a href="login" class="nav-item nav-link">Вoйти</a>
+                        <li class="nav-item">
+                            <a href="/login" class="nav-item nav-link">Вoйти</a>
+                        </li>
                     {% endif %}
-                    <a href="catalogue" class="nav-item nav-link">Товары</a>
-                </div>
+                    <li class="nav-item">
+                        <a href="/catalogue" class="nav-item nav-link">Товары</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/reviews" class="nav-item nav-link">Отзывы</a>
+                    </li>
+                </ul>
             </div>
         </nav>
+    </div>
+    <div class="container">
+        {% for category, mesg in get_flashed_messages(with_categories=true) %}
+            {% if category == 'warning' %}
+                <h6 class="text-center" style="color: red;">{{ mesg }}</h1>
+            {% else %}
+                <h6 class="text-center" style="color: green;">{{ mesg }}</h1>
+            {% endif %}
+        {% endfor %}    
     </div>
 
     {% block content %}

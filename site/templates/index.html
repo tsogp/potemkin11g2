@@ -5,7 +5,7 @@
 {% block style %}
     <style>
         .main,
-        .review {
+        .map {
             min-height: 60vh;
             height: 100%
         }
@@ -34,10 +34,11 @@
             min-height: 10vh;
             background-color: #241A3D;
         }
-        @media only screen and (min-width: 700px) {
+        @media all and (max-width: 730px) {
             iframe {
-                width: 600px;
-            }
+                width: 100%;
+                height: 100%;
+            }   
         }
     </style>
 {% endblock %}
@@ -51,28 +52,46 @@
     
         <div class="container bg-light text-dark my-3 py-5">
             <div class="row">
-                <div class="col-sm-4">
-                    <h3>Почему именно у нас?</h3>
+                <div class="col-sm">
+                    <h3 class="text-center">Почему именно у нас?</h3>
                     <ul class="py-3">
-                        <li class="py-1">Всегда ищем новых поставщиков.</li>
-                        <li class="py-1">Самые дешевые цены.</li>
-                        <li class="py-1">Не боимся эксперементировать!</li>
+                        <li class="py-1">
+                            Всегда ищем новых поставщиков.
+                        </li>
+                        <li class="py-1">
+                            Самые дешевые цены.
+                        </li>
+                        <li class="py-1">
+                            Не боимся эксперементировать!
+                        </li>
                     </ul>
                 </div>
-                <div class="col-sm-4">
-                    <h3>Какие у нас гарантии?</h3>
+                <div class="col-sm">
+                    <h3 class="text-center">Какие у нас гарантии?</h3>
                     <ul class="py-3">
-                        <li class="py-1">Вернем деньги в случае возникновения любых вопросов.</li>
-                        <li class="py-1">Мгновеннная консультация.</li>
-                        <li class="py-1">Качественная продукция.</li>
+                        <li class="py-1">
+                            Вернем деньги в случае возникновения любых вопросов.
+                        </li>
+                        <li class="py-1">
+                            Мгновеннная консультация.
+                        </li>
+                        <li class="py-1">
+                            Качественная продукция.
+                        </li>
                     </ul>
                 </div>
-                <div class="col-sm-4">
-                    <h3>Где же Вас найти?</h3>
+                <div class="col-sm">
+                    <h3 class="text-center">Где же нас найти?</h3>
                     <ul class="py-3">
-                        <li class="py-1">Москва.</li>
-                        <li class="py-1">Петербург.</li>
-                        <li class="py-1">Казань.</li>
+                        <li class="py-1">
+                            Москва.
+                        </li>
+                        <li class="py-1">
+                            Петербург.
+                        </li>
+                        <li class="py-1">
+                            Казань.
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -86,37 +105,12 @@
         </div>
     
     
-        <div class="container bg-light review">
-            <h1 class="pt-3 text-center">Обратная связь</h1>
-            <h6 class="text-center">Оставьте, пожалуйста, отзыв</h6>
-            <form>
-                <div class="container-md bg-light">
-                    <div class="form-group">
-                        <label for="name">Имя</label>
-                        <input type="text" class="form-control" id="name" placeholder="Иван">
-                    </div>
-                    <div class="form-group">
-                        <label for="last_name">Фамилия</label>
-                        <input type="text" class="form-control" id="last_name" placeholder="Иванов">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email" placeholder="example@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="review">Текст озыва</label>
-                        <textarea class="form-control" id="review" rows="3"></textarea>
-                    </div>
-                </div>
-            </form>
-            <input type="submit" class="btn btn-outline-dark" value="Отправить">
-            <div style="text-align: center;" class="py-3">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118930.22500580846!2d-157.8691130446599!3d21.32801929624737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c00183b8cc3464d%3A0x4b28f55ff3a7976c!2z0JPQvtC90L7Qu9GD0LvRgywg0JPQsNCy0LDQudC4LCDQodCo0JA!5e0!3m2!1sru!2sru!4v1631186226138!5m2!1sru!2sru"
-                    width=offsetWidth height="450" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
-            </div>
-    
+        <div class="container bg-light map" id="map">
+            <iframe style="border:0; height: 1060px; width: 100%;" allowfullscreen="" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118930.22500580846!2d-157.8691130446599!3d21.32801929624737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c00183b8cc3464d%3A0x4b28f55ff3a7976c!2z0JPQvtC90L7Qu9GD0LvRgywg0JPQsNCy0LDQudC4LCDQodCo0JA!5e0!3m2!1sru!2sru!4v1631186226138!5m2!1sru!2sru">
+            </iframe>
         </div>
     </div>
+    <script>
+        var elemOffsetWidth = document.getElementById('map').getBoundingClientRect().width - 10;
+    </script>
 {% endblock %}
